@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+	<meta charset="UTF-8">
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -61,15 +62,6 @@
 	  				<tr>
 	  					<th>Author:</th>
 	  					<td><?php echo $response->author;?></td>
-	  				</tr>
-
-	  				<tr>
-	  					<th>Document Sentiment:</th>
-  						<td>
-  							<?php foreach($response->docSentiment as $key => $value){?>
-  								<?php echo $key.' => '.$value.'<br>';?>
-  							<?php } ?>  								
-						</td>
 	  				</tr>
 
 	  				<tr>

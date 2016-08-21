@@ -48,6 +48,16 @@
 			  <button type="submit" class="btn btn-default">Extract keywords using cortical.io</button>
 			</form>
 		</div>
+		<div class='col-md-3'>
+			<label>Search News based on title</label><hr>
+			<form action='alchemysearch.php' method="post">
+			  <div class="form-group">
+			    <label for="WEB URL">Enter title:</label>
+			    <input type="text" class="form-control" name='title' id="title" placeholder="Enter title">
+			  </div>
+			  <button type="submit" class="btn btn-default">Search</button>
+			</form>
+		</div>
 	</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </body>

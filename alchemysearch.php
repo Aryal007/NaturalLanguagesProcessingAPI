@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
+	<meta charset="UTF-8">
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -23,7 +24,7 @@
 			$title = $_POST['title'];
 			$titles = str_replace(' ','^',$title);
 			$titles = 'A['.$titles.']';
-			$api_string = "https://gateway-a.watsonplatform.net/calls/data/GetNews?q.enriched.url.title=".$titles."&apikey=fa0dea09f83bc4e1f167a98c012c79559b7b0693&outputMode=json&start=now-1d&end=now&return=enriched.url.url,enriched.url.title";
+			$api_string = "https://gateway-a.watsonplatform.net/calls/data/GetNews?q.enriched.url.title=".$titles."&apikey=fcd3536b6cee8adae1d1e8204086704a5dcc109e&outputMode=json&start=now-1d&end=now&return=enriched.url.url,enriched.url.title";
 			// die($api_string);
 
 			$response = file_get_contents($api_string);
