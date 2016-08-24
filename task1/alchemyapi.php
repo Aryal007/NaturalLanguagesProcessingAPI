@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-	<meta charset="UTF-8">
+		<meta charset="UTF-8">
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<!-- Latest compiled and minified CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -22,7 +24,7 @@
 		    //1,000 API Events per day per Bluemix Organization
 			$url = $_POST['url'];
 
-			$api_string = "http://gateway-a.watsonplatform.net/calls/url/URLGetCombinedData?extract=concept,author,title,keyword,taxonomy,doc-sentiment,doc-emotion&outputMode=json&apikey=fa0dea09f83bc4e1f167a98c012c79559b7b0693&showSourceText=1&url=".$url;
+			$api_string = "http://gateway-a.watsonplatform.net/calls/url/URLGetCombinedData?extract=concept,author,title,keyword,entities,taxonomy,doc-sentiment,doc-emotion&outputMode=json&apikey=fa0dea09f83bc4e1f167a98c012c79559b7b0693&showSourceText=1&url=".$url;
 
 			$response = file_get_contents($api_string);
 			// $response = file_get_contents('http://gateway-a.watsonplatform.net/calls/url/URLGetCombinedData?extract=concept,author,title,keyword,entity,taxonomy,pub-date,doc-sentiment,doc-emotion&outputMode=json&apikey=fa0dea09f83bc4e1f167a98c012c79559b7b0693&showSourceText=1&url=http://kathmandupost.ekantipur.com/news/2016-08-17/readers-want-authentic-voices.html');
@@ -63,6 +65,22 @@
 	  					<th>Author:</th>
 	  					<td><?php echo $response->author;?></td>
 	  				</tr>
+
+	  				<tr>
+	  					<th rowspan='<?php echo sizeof($response->entities)+1;?>'>Entities:</th>
+  					</tr>
+
+  					<?php foreach($response->entities as $row) { ?>
+  						<tr>
+							<td>
+							<?php foreach($row as $key=>$value){
+								if($key != 'disambiguated'){
+									echo $key.' => '.$value.'<br>'; 
+								}
+							}?>
+							</td>
+	  					</tr>
+  					<?php } ?>
 
 	  				<tr>
 	  					<th>Document Sentiment:</th>
